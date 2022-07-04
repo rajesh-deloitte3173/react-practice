@@ -1,12 +1,16 @@
 import { useEffect, useState } from "react"
 import BlogList from "./BlogList";
+import useFetch from "./useFetch";
 
 function Home(){
     
     const [name, setName] = useState("Some name");
     const [age,setAge] = useState(32);
 
-    const [blogs, setBlogs] = useState(null);
+    // const [blogs, setBlogs] = useState(null);
+
+    // const [loading, setLoading] = useState(true);
+    // const [error, setError] = useState(null);
 
     // const [blogs, setBlogs] = useState([
     //     {title: "Blog1", author: "mario", body:"body1", id:1},
@@ -38,16 +42,27 @@ function Home(){
     //     console.log(name);
     // },[name]);
 
-    useEffect(()=>{
-        fetch('http://localhost:8000/blogs')
-        .then((res) => {
-            return res.json();
-        })
-        .then(data => {
-            console.log(data);
-            setBlogs(data);
-        })
-    },[])
+    // useEffect(()=>{
+    //     fetch('http://localhost:8000/blogs')
+    //     .then((res) => {
+    //         if(!res.ok){
+    //             throw Error("could not fetch data")
+    //         }
+    //         return res.json();
+    //     })
+    //     .then(data => {
+    //         console.log(data);
+    //         setBlogs(data);
+    //         setLoading(false);
+    //         setError(null);
+    //     })
+    //     .catch(err=>{
+    //         console.log(err.message);
+    //         setError(err.message);
+    //     });
+    // },[])
+
+    const {data:blogs, loading, error} = useFetch('http://localhost:8000/blogs');
 
     return(
         <div>
@@ -60,6 +75,8 @@ function Home(){
             <button onClick={handleClick}>click to change</button>
             <button onClick={() => handleClickPar("hero")}>Click parameter fun</button>
             <button onClick={handleClickEvent}>click me event obj</button><br></br>
+            {error && <div>{error}</div>}
+            {loading && <div>loading....</div>}
             {blogs && <BlogList blogs={blogs} title="All Blogs"/>}
             {/* <BlogList blogs={blogs} title = "All Blogs" handleDelete = {handleDelete}/> */}
             {/* <BlogList blogs={blogs.filter((blog)=>blog.author === 'mario')} title = "Mario's Blogs!" handleDelete = {handleDelete}/> */}

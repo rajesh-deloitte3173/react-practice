@@ -3,7 +3,7 @@ import { useEffect } from "react";
 const BlogList = (props) => {
     const blogs = props.blogs;
     const title = props.title;
-    const handleDelete = props.handleDelete;
+    // const handleDelete = props.handleDelete;
 
     return (
     <div>
@@ -13,7 +13,7 @@ const BlogList = (props) => {
                 <h3>{blog.title}</h3>
                 <p>Written by: {blog.author}</p>
                 <p>{blog.body}</p>
-                <button onClick={() => handleDelete(blog.id)}>Delete</button>
+                {/* <button onClick={() => handleDelete(blog.id)}>Delete</button> */}
             </div>
         ))}
     </div>

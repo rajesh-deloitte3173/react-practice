@@ -1,0 +1,16 @@
+{
+    "blogs":[
+        {
+            "title": "Title1",
+            "body": "Body1",
+            "author": "mario",
+            "id": 1
+        },
+        {
+            "title": "Title2",
+            "body": "Body2",
+            "author": "yoshi",
+            "id": 2
+        }
+    ]
+}

@@ -2,6 +2,8 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 import BlogDetails from './BlogDetails';
 import Create from './Create';
+import FlexBox from './FlexBox';
+import GridLayout from './GridLayout';
 import Home from './home';
 import Navbar from './Navbar';
 import NotFound from './NotFound';
@@ -15,7 +17,7 @@ function App() {
         <Navbar />
         <div className='content'>
           <Switch>
-            ,<Route exact path="/">
+            <Route exact path="/">
               <Home />
             </Route>
             <Route path="/create">
@@ -23,6 +25,12 @@ function App() {
             </Route>
             <Route path="/blog/:id">
               <BlogDetails />
+            </Route>
+            <Route path="/grid">
+              <GridLayout />
+            </Route>
+            <Route path="/flex">
+              <FlexBox />
             </Route>
             <Route path="*">
               <NotFound />

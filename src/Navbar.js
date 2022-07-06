@@ -10,6 +10,8 @@ const Navbar = () =>{
                 backgroundColor: '#f1356d',
                 borderRadius: '8px'
             }}>Second page</Link>
+            <Link to="/grid">Grid Layout</Link>
+            <Link to="/flex">Flex Box</Link>
         </div>
     );
 }
